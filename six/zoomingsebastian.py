@@ -14,7 +14,5 @@ for charIndex in range(len(line)):
     else:
         start = charIndex + 1
         break
-        
-                
-    
+       
 print(start)
