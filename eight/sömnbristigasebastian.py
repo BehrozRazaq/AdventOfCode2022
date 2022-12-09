@@ -65,6 +65,7 @@ def identifyEdges(map):
         for treeIndex in range(len(row)):
             tree = row[treeIndex]
             tree['isEdge'] = rowIndex == 0 or rowIndex == (len(map) - 1) or treeIndex == 0 or treeIndex == (len(row) -1)
+
 st = time.time()
 treeMap = []
 for line in lines:
