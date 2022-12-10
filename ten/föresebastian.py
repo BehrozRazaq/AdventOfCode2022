@@ -18,14 +18,13 @@ def populateCRT():
 
 def updateCRT():
     if int(system['cycle'] % 40) - 1 in range(system['X'] - 1, system['X'] + 2):
-
-        system['CRT'][int((system['cycle']-1) / 40)] +=  '#'
+        system['CRT'][int((system['cycle']-1) / 40)] +=  '🌞'
     else:
-        system['CRT'][int((system['cycle']-1) / 40)] += '.'
+        system['CRT'][int((system['cycle']-1) / 40)] += '🌚'
     printCRT()
 
 def printCRT():
-    t.sleep(0.005)
+    t.sleep(0.001)
     os.system('cls')
     for row in system['CRT']:
         print(row)
