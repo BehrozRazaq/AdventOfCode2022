@@ -27,7 +27,7 @@ def printCRT():
     t.sleep(0.001)
     os.system('cls')
     for row in system['CRT']:
-        print(row)
+        print(row[:-1])
     print()
 
 def nextCycle():
