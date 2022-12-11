@@ -8,28 +8,30 @@ class Monkey:
     
     def inspectItems(self):
         for item in self.items:
-            item = int((self.operation(item))/3)
-            monkeys[self.recipiants[self.test(item)]].items.append(item)
+            cItem = self.operation(item) % 9699690
+            if cItem < 0 :
+                print('BIG OOF') 
+            monkeys[self.recipiants[self.test(cItem)]].items.append(cItem)
             self.inspectionTimes += 1
         self.items.clear()
     
     def operation(self, item):
         if monkeys.index(self) == 0:
-            return item * 5
+            return (item * 5)  
         elif monkeys.index(self) == 1:
-            return item + 5
+            return (item + 5) 
         elif monkeys.index(self) == 2:
-            return item * 19
+            return (item * 19) 
         elif monkeys.index(self) == 3:
-            return item + 7
+            return (item + 7) 
         elif monkeys.index(self) == 4:
-            return item + 2
+            return (item + 2)
         elif monkeys.index(self) == 5:
-            return item + 1
+            return (item + 1) 
         elif monkeys.index(self) == 6:
-            return item * item
+            return (item * item) 
         else:
-            return item + 2
+            return (item + 4) 
         
     def test(self, item):
         if monkeys.index(self) == 0:
@@ -75,7 +77,7 @@ notes = open('eleven\input.txt').readlines()
 monkeys = []
 parseMonkeys()
 
-for round in range(20):
+for round in range(10000):
     for monkey in monkeys:
         monkey.inspectItems()
 
@@ -84,4 +86,5 @@ for monkey in monkeys:
     monkeBussiness.append(monkey.inspectionTimes)
 
 monkeBussiness.sort()
+print(monkeBussiness)
 print(monkeBussiness[-2]*monkeBussiness[-1])
